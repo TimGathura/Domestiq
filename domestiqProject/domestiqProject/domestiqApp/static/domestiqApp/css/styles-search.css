@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&family=Ubuntu:wght@300;400;500;700&display=swap');
+
+:root {
+    --text-color: #DCDCDC;
+    --accent-color: #e3725f;
+    --black-color: #000;
+    --white-color: #fff;
+    --dark-grey-color: #333333;
+    --light-grey-color: #555555;
+    --bg-subtle-grey-color: #f4f4f4;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    background-color: #363535;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--text-color);
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.nav-container {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+nav {
+    padding: 0 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    background-color: rgba(0.043, 0.024, 0.012, 0.9);
+}
+
+nav #logo-id {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+nav a img {
+    /*img css comes here*/
+    width: 40px;
+}
+
+nav a h1 {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+nav .links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+nav .links a {
+    /*not necessary*/
+}
+
+nav .log-in {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .log-in button {
+    border: none;
+    background-color: transparent;
+    color: var(--text-color);
+    padding: 8px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+nav .log-in .get-started-btn {
+    background-color: var(--accent-color);
+    color: black;
+    margin-right: 14px;
+}
+
+nav .log-in .log-in-btn {
+    background-color: var(--accent-color);
+    color: black;
+    margin-right: 14px;
+}
+
+
+/* Hero section for search page*/
+.hero-search {
+    background: url(../Project-Imgs/main-bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--text-color);
+    height: calc(50vh);
+    border: 1px solid white;
+}
+
+.hero-search .hero-search-content {
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 250px;
+}
+
+
+/* Search Section itself(with search bars)*/
+.search-bars-section {
+    border: 1px solid black;
+    background-color: var(--bg-subtle-grey-color);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--light-grey-color);
+    height: calc(100vh - 80px);
+}
+
+.search-bars-section .main-card-container {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: calc(100vh - 150px);
+    margin: 0 80px;
+    padding: 20px 0;
+}
+
+.search-bars-section .main-card-container .flex-container{
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 100px;
+}
+
+.search-bars-section .search-grid-container {
+    display: grid;
+    grid-template-rows: repeat(1, 1fr); 
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px; 
+    width: 100%;
+    margin: 20px;
+}
+
+.search-bars-section .match-container {
+    margin-right: 50px;
+}
+
+.search-bars-section .match-container button{
+    padding: 10px;
+    width: 150px;
+}
+.search-bars-section .main-card-container .preferences-container {
+    margin-bottom: 220px;
+}
+.search-bars-section .search-grid-container .search-grid {
+    border: 1px solid black;
+    
+}
+
+.search-bars-section .search-grid-container .search-grid .role{
+    border: 1px solid black;
+}
+
+/*Issues: not displaying*/
+.search-grid .search-bar #role-dropdown option:first-child
+.search-grid .search-bar #role-dropdown option:checked {
+    color: gray;
+    font-style: italic;
+}
+
+/*results textbox*/
+.main-card-container .preferences-container #tagsTextbox {
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: inline-flex; /* Use inline-flex for horizontal display */
+    flex-wrap: wrap; /* Allow tags to wrap to the next line if needed */
+    gap: 5px; /* Add space between tags */ 
+    width: 600px;
+    word-wrap: break-word;
+}
+
+.tagContainer {
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Center the content vertically */
+    margin: 5px;
+}
+
+.deleteTag {
+    cursor: pointer;
+    margin-left: 5px;
+}

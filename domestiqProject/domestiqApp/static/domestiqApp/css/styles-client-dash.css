@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&family=Ubuntu:wght@300;400;500;700&display=swap');
+
+:root {
+    --text-color: #DCDCDC;
+    --accent-color: #e3725f;
+    --black-color: #000;
+    --white-color: #fff;
+    --dark-grey-color: #333333;
+    --light-grey-color: #555555;
+    --bg-subtle-grey-color: #f4f4f4;
+    --bg-registration-form: #18181c;
+    --bg-artstation: #101014;
+    --text-artstation: #bebec2;
+    --bg-artstation-email: #101014;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-artstation);
+}
+
+
+
+
+/* Updated Sidebar styles for sticky behavior */
+.sidebar {
+    width: 250px;
+    height: 100%;
+    background-color: var(--bg-artstation);
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+/*Company logo*/
+.sidebar .logo-cont {
+    background-color: var(--black-color);
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .logo-cont #logo-id{
+    display: flex;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 40px;
+}
+
+.sidebar .logo-cont #logo-id img{
+    width: 25px;
+}
+
+.sidebar .logo-cont #logo-id h1{
+    color: var(--text-artstation);
+    font-size: 20px;
+}
+
+
+/*profile pic*/
+.sidebar .prof-pic-cont {
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: center; 
+}
+
+
+.sidebar .prof-pic-cont img{
+    width: 100px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.sidebar .prof-pic-cont .materials-symbols-outlined {
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    background-color: var(--dark-grey-color);
+    border-radius: 50%;
+    padding: 2px 0 0 3px;
+    margin: -20px 0 0 95px;
+}
+
+.sidebar .prof-pic-cont h1{
+    margin-top: 10px;
+    font-weight: 300;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar .prof-pic-cont h1 span{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+
+/* Sidebar Nav section */
+.sidebar #tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.sidebar #tabs a {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 10px 40px;
+    color: var(--text-artstation);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.sidebar #tabs a:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.sidebar #tabs a.active {
+    background-color: var(--black-color);
+    color: #fff;
+}
+
+.sidebar #tabs a.active::before {
+    content: '';
+    width: 3px;
+    height: 100%;
+    background-color: var(--accent-color);
+    position: absolute;
+    left: 0; /* Adjust the position to align it properly */
+    top: 0;
+}
+
+
+/*Main content*/
+#content {
+    margin-left: 250px;
+    height: 100vh;
+    background-color: var(--bg-subtle-grey-color);
+    color: var(--dark-grey-color);
+    
+}
+
+/*navbar for dashboard*/
+#content .nav {
+    position: sticky;
+    top: 0; /*Keeps it on top*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-artstation);
+    height: 60px;
+    padding: 0 40px;
+}
+
+#content .nav .links {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+#content .nav .log-out {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 12px;
+}
+
+#content .nav .log-btn {
+    font-size: 10px;
+    font-weight: 300;
+    padding: 5px;
+}
+
+#content .nav .log-out .log-btn .materials-symbols-rounded {
+    font-size: 50px;
+    background-color: var(--dark-grey-color);
+}
+
+/*Dashboard Content*/
+#content #dashboardContent {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#content #dashboardContent h1 {
+    font-weight: 700;
+    font-size: 34px;
+    margin-top: 20px;
+}
+
+
+/*Generic card-cont style*/
+.card-cont,
+#content #dashboardContent .card-cont {
+    background-color: var(--white-color);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin-top: 20px;
+    color: var(--light-grey-color);
+}
+/*Generic hr style*/
+hr {
+    margin-top: 20px;
+    color: white;
+}
+/*Generic h2 style*/
+h2 {
+    margin-top: 20px;
+}
+
+
+/*Requests content*/
+#content #myRequestsContent {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#content #myRequestsContent h1 {
+    font-weight: 700;
+    font-size: 34px;
+    margin-top: 20px;
+}
+
+#content #myRequestsContent p {
+    margin-top: 20px;
+}
+
+#content #myRequestsContent .card-cont {
+    text-align: center;
+}
+
+#content #myRequestsContent .card-cont img {
+    width: 200px;
+}
+
+
+/*Appointments page*/
+#content #appointmentsContent {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#content #appointmentsContent h1{
+    font-weight: 700;
+    font-size: 34px;
+    margin-top: 20px;
+}
+
+#content #appointmentsContent .card-cont {
+    text-align: center;
+}
+
+#content #appointmentsContent .card-cont img {
+    width: 200px;
+}

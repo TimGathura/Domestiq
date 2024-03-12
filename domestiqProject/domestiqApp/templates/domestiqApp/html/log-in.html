@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log-In</title>
+    <link rel="stylesheet" href="{% static 'domestiqApp/css/styles-log-in.css' %}">
+</head>
+
+<body>
+    
+    
+    <div class="main-container">
+        <div class="log-in-container">
+            <h6>Don't have an account?</h6>
+            <a href="{% url 'client_signup' %}">Sign Up</a>
+        </div>
+    
+        <!--Logo-->  
+        <a href="{% url 'index' %}" id="logo-id">
+            <img src="{% static 'domestiqApp/images/Logo-Domestiq.png' %}" alt="#">
+           <h1 class="domestiq">Domestiq</h1>
+        </a>    
+        
+        <!--Sign up text-->
+        <h1 class="sign-up">Log In</h1>
+        <p>Get outstanding services from our pool of industrious workers. Get
+        outstanding services from our pool of industrious workers.
+        </p>
+        <div id="form-container">
+            <form id="client-form" class="registration-form" method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                
+                <div class="email-cont">
+                    <label for="client-username">Username:</label>
+                    <input type="text" placeholder="E.g. JohnKamau" id="client-email" name="client_username" required>
+                </div>
+    
+                <div class="password-cont">
+                    <label for="client-password">Password:</label>
+                    <input type="password" placeholder="8-16 characters" id="client-password" name="client_password" required>
+                </div>
+        
+                <button class="submit" type="submit">Log In</button>
+            </form>
+
+            <a href="{% url 'client_dash' %}">Client dashboard</a>
+            <a href="{% url 'worker_dash' %}"> Worker dashboard</a>
+            
+    
+        </div>
+    </div>
+
+
+
+
+
+    
+
+    <script src="{% static 'domestiqApp/js/script-log-in.js' %}"></script>
+</body>
+</html>

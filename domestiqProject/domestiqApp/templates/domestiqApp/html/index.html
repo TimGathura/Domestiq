@@ -1,0 +1,297 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'domestiqApp/css/styles.css'%}">
+    <title>Project: Domestiq</title>
+</head>
+
+<body>
+
+<!--Navbar section-->    
+    <div class="nav-container">
+        <nav>
+            <a href="{% url 'index' %}" id="logo-id">
+                 <img src="{% static 'domestiqApp/images/Logo-Domestiq.png'%}" alt="#">
+                <h1>Domestiq</h1>
+            </a>
+        
+            <div class="links">
+                <a href="{% url 'index' %}" class="active">HOME</a>
+                <a href="{% url 'about' %}">ABOUT</a>
+                <a href="{% url 'services' %}">SERVICES</a>
+                <a href="{% url 'search' %}">SEARCH</a>
+                <a href="{% url 'contact' %}">CONTACT US</a>
+            </div>
+        
+            <div class="log-in">
+                {% if user.is_authenticated %}
+                <div class="dropdown">
+                    <button class="log-in-btn2">
+                        <img class="portrait1" src="{% static 'domestiqApp/images/male-portrait1.png'%}" alt="#">
+                        <div class="dropdown-content" id="dropdown-content">
+                            <a href="{% url 'client_dash' %}">My Dashboard</a>
+                            <a href="{% url 'logout' %}">Logout</a>
+                        </div>
+                    </button>
+                </div>
+                {% else %}
+
+                <button class="log-in-btn" type="submit"><a href="{% url 'client_signup' %}">Sign Up</a></button>
+                <button class="log-in-btn" type="submit"><a href="{% url 'login' %}">Log In</a></button>
+                {% endif %}
+                <!--
+                <a href="{% url 'client_signup' %}"> 
+                    <button class="get-started-btn">Get Started</button>
+                </a>
+                <a href="{% url 'login' %}">
+                    <button class="log-in-btn">Log In</button>
+                </a>-->
+            </div>
+        </nav>
+    </div>
+
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert"> 
+                <strong>Message: </strong> {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+                <span aria-hidden="true"> &times; </span>
+            </div>
+            {% endfor %}
+            {% if user.is_authenticated %}
+                <h1>Welcome, <span> {{ user.username }} </span></h1>
+                <h4> You are successfully logged in </h4>
+            {% else %}
+                <div></div>
+            {% endif %}
+
+
+
+
+<!--Hero Section-->      
+    <section class="hero-main">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Where Homes Find <span>Perfect Matches</span></h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non, enim eos. 
+                    Similique vitae nesciunt facere, iure minus possimus
+                    debitis excepturi qui dolores vel sunt. Labore vel omnis impedit placeat. Magnam!</p>
+                <a href="{% url 'search' %}">
+                    <span class="material-symbols-outlined">
+                    person_search
+                    </span>
+                    <p>Get a match now</p>
+                </a>
+    
+                <h6>The numbers speak for themselves!</h6>
+    
+                <div class="stats">
+                    <div class="stat-one"> <!--flexbox for sure-->
+                        <span class="material-symbols-outlined">
+                            add_task
+                        </span>
+                        <div class="stat-description">
+                            <p class="number">5k+</p>
+                            <p>Registered Workers</p>
+                        </div>
+                    </div>
+                    <div class="stat-one"> <!--flexbox for sure-->
+                        <span class="material-symbols-outlined">
+                            grade
+                        </span>
+                        <div class="stat-description">
+                            <p class="number">50k+</p>
+                            <p>Satisfied Clients</p>
+                        </div>
+                    </div><div class="stat-one"> <!--flexbox for sure-->
+                        <span class="material-symbols-outlined">
+                            room_service
+                        </span>
+                        <div class="stat-description">
+                            <p class="number">500k+</p>
+                            <p>Hours Worked</p>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+    
+            <div class="hero-image">
+                <img src="{% static 'domestiqApp/images/Cleaner2.png'%}" alt="#">
+            </div>
+        </section>
+    </section>
+    
+<!--Services Section-->
+    <section class="services">
+        <div class="services-a">
+            <h6>WE GET YOU <span>QUALITY</span></h6>
+            <h1>House Help <span>Services</span></h1>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                Aspernatur optio nostrum id fugit ipsam quis iste 
+                distinctio neque sit cupiditate?</p>
+            <a href="{% url 'services' %}">
+                <span class="material-symbols-outlined">
+                person_search
+                </span>
+                <p>Our Services</p>
+            </a>
+        </div>
+
+        <div class="services-grid">
+            <div class="services-grid-item">
+                <span class="material-symbols-outlined">
+                    person
+                </span>
+                <h1>House Helps</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Magnam quas perferendis quae at ad! Voluptatem nostrum a 
+                aut molestiae.</p>
+            </div>
+            <div class="services-grid-item">
+                <span class="material-symbols-outlined">
+                    person
+                </span>
+                <h1>Gardeners</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Magnam quas perferendis quae at ad! Voluptatem nostrum a 
+                aut molestiae.</p>
+            </div><div class="services-grid-item">
+                <span class="material-symbols-outlined">
+                    person
+                </span>
+                <h1>Nannies</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Magnam quas perferendis quae at ad! Voluptatem nostrum a 
+                aut molestiae.</p>
+            </div><div class="services-grid-item">
+                <span class="material-symbols-outlined">
+                    person
+                </span>
+                <h1>Cleaners</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Magnam quas perferendis quae at ad! Voluptatem nostrum a 
+                aut molestiae.</p>
+            </div>
+            
+        </div>
+    </section>
+
+<!--Why Us Section-->
+    <section class="why-us">
+        <div class="why-img">
+            <img src="{% static 'domestiqApp/images/why-us-cleaner2.jpg'%}" alt="#">
+        </div>
+        <div class="why-div">
+            <h1>Some of the Reasons to <span>Choose Us!</span></h1>
+            <hr>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+             Dicta iusto quibusdam maiores minima repellat nemo quod 
+             dignissimos ullam officiis ea.</p>
+            <div class="why-point-div">
+                <span class="material-symbols-outlined">
+                    check_circle
+                </span>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Ipsa quod porro iusto. Soluta, cupiditate velit? lorem ipsum dolor</p>
+            </div>
+            <div class="why-point-div">
+                <span class="material-symbols-outlined">
+                    check_circle
+                </span>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Ipsa quod porro iusto. Soluta, cupiditate velit? lorem ipsum dolor</p>
+            </div>
+            <div class="why-point-div">
+                <span class="material-symbols-outlined">
+                    check_circle
+                </span>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Ipsa quod porro iusto. Soluta, cupiditate velit? lorem ipsum dolor</p>
+            </div>
+            <div class="why-convinced">
+                <h6>Convinced?</h6>
+                <a href="{% url 'client_signup' %}">
+                    Click here to get started.
+                </a>
+            </div>
+        </div>
+    </section>
+
+<!--Testimonials Section-->
+    <section class="testimonials">
+        <h6>STILL <span>NOT</span> CONVINCED?</h6>
+        <h1>Here's What <span>Our Clients</span> are Saying</h1>
+        <div class="test-container">
+            <div class="test-item">
+                <img class="speech" src="{% static 'domestiqApp/images/speech-marks.png' %}" alt="speech-marks">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Temporibus magnam blanditiis, reiciendis, eligendi eaque, nam expedita 
+                mollitia veniam ex voluptates earum totam quaerat nemo itaque non 
+                molestias aliquam architecto possimus.</p>
+                <div class="img-container">
+                    <img class="portrait" src="{% static 'domestiqApp/images/male-portrait1.png' %}" alt="face">
+                </div>
+                <h6 class="name">T. Gathura</h6>
+                <h6>Kiambu, Kenya</h6>
+            </div>
+            <div class="test-item">
+                <img class="speech" src="{% static 'domestiqApp/images/speech-marks.png' %}" alt="speech-marks">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Temporibus magnam blanditiis, reiciendis, eligendi eaque, nam expedita 
+                mollitia veniam ex voluptates earum totam quaerat nemo itaque non 
+                molestias aliquam architecto possimus.</p>
+                <div class="img-container">
+                    <img class="portrait" src="{% static 'domestiqApp/images/female-portrait1.png' %}" alt="face">
+                </div>
+                <h6 class="name">K. Nyambura</h6>
+                <h6>Ngong', Kenya</h6>
+            </div>
+            <div class="test-item">
+                <img class="speech" src="{% static 'domestiqApp/images/speech-marks.png' %}" alt="speech-marks">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Temporibus magnam blanditiis, reiciendis, eligendi eaque, nam expedita 
+                mollitia veniam ex voluptates earum totam quaerat nemo itaque non 
+                molestias aliquam architecto possimus.</p>
+                <div class="img-container">
+                    <img class="portrait" src="{% static 'domestiqApp/images/male-portrait1.png' %}" alt="face">
+                </div>
+                <h6 class="name">J. Opiyo</h5>
+                <h6>Nakuru, Kenya</h6>
+            </div>
+        </div>
+    </section>
+
+<!--Footer Section-->
+    <section class="footer">
+        <p>©2024 Domestiq Private Ltd. All Rights Reserved.</p>
+        <div class="socials">
+            <i class='bx bxl-facebook'></i>            
+            <i class='bx bxl-instagram'></i>            
+            <i class='bx bxl-linkedin' ></i>        
+        </div>
+        <div class="tos">
+            <a href='#'><p> Terms of Service </p></a>
+            <a href='#'><p> Privacy Policy </p></a>
+        </div>
+        
+
+    </section>
+
+
+
+
+
+
+
+    
+
+    <script src="{% static 'domestiqApp/js/script.js' %}" defer></script>
+</body>
+</html>

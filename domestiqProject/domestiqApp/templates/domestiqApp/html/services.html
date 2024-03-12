@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <link rel="stylesheet" href="{% static 'domestiqApp/css/styles-services.css' %}">
+</head>
+
+<body>
+    <!--Navbar for services.html-->
+    <div class="nav-container">
+        <nav>
+            <a href="{% url 'index' %}" id="logo-id">
+                 <img src="{% static 'domestiqApp/images/Logo-Domestiq.png' %}" alt="#">
+                <h1>Domestiq</h1>
+            </a>
+        
+            <div class="links">
+                <a href="{% url 'index' %}">HOME</a>
+                <a href="{% url 'about' %}">ABOUT</a>
+                <a href="{% url 'services' %}">SERVICES</a>
+                <a href="{% url 'search' %}">SEARCH</a>
+                <a href="{% url 'contact' %}">CONTACT US</a>
+        
+                </div>
+
+            <div class="log-in">
+                <a href="{% url 'client_signup' %}">
+                    <button class="get-started-btn">Get Started</button>
+                </a>
+                <a href="{% url 'login' %}">
+                    <button class="log-in-btn">Log In</button>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    Services Page
+    <script src="{% static 'domestiqApp/css/styles-services.js' %}"></script>
+</body>
+</html>

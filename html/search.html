@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <link rel="stylesheet" href="../css/styles-search.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+
+<body>
+    <!--Navbar for search.html-->
+    <div class="nav-container">
+        <nav>
+            <a href="../index.html" id="logo-id">
+                 <img src="../Project-Imgs/Logo-Domestiq.png" alt="#">
+                <h1>Domestiq</h1>
+            </a>
+        
+            <div class="links">
+                <a href="../index.html">HOME</a>
+                <a href="../html/about.html">ABOUT</a>
+                <a href="../html/services.html">SERVICES</a>
+                <a href="../html/search.html">SEARCH</a>
+                <a href="../html/contact.html">CONTACT US</a>
+        
+                </div>
+        
+            <div class="log-in">
+                <button class="get-started-btn">Get Started</button>
+                <button class="log-in-btn">Log In</button>
+            </div>
+        </nav>
+    </div>
+
+    <section class="hero-search">
+        <div class="hero-search-content">
+            <h1>Search for your <span>Perfect Match</span></h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem voluptatibus
+             nulla qui exercitationem facilis consequatur necessitatibus nobis ex accusamus repudiandae,
+             animi harum alias ipsam aspernatur, veniam atque eos earum similique.</p>
+             <div class="hero-buttons">
+                <button class="get-started-btn">Sign Up</button>
+                <button class="log-in-btn">Log in</button>
+             </div>
+            <p>If you have already logged in, proceed to search for your perfect match!</p>
+        </div>
+    </section>
+
+    <section class="search-bars-section">
+        <div class="main-card-container">
+            <div class="flex-container">
+                <div class="search-grid-container">
+                    <div class="search-grid">
+                        <!--Role Dropdown-->
+                        <div class="role">
+                            <h6>Role</h6>
+                            <span class="material-symbols-outlined">
+                                help
+                            </span>
+                        </div>
+                        <div class="search-bar">
+                            <select id="roleDropdown" onchange="updateTextBox(this.value, 'roles')">
+                                <option value="" selected>Select a Role</option>
+                                <option value="House Help">House Help</option>
+                                <option value="Nanny">Nanny</option>
+                                <option value="Gardener">Gardener</option>
+                                <option value="Gate Keeper">Gate Keeper</option>
+                                <option value="Chef">Chef</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!--Location Dropdown-->
+                    <div class="search-grid">
+                        <div class="role">
+                            <h6>Location</h6>
+                            <span class="material-symbols-outlined">
+                                help
+                            </span>
+                        </div>
+                        <div class="search-bar">
+                            <select id="locationDropdown" onchange="updateTextBox(this.value, 'location')">
+                                <option value="" selected>Select a Location</option>
+                                <option value="Nairobi">Nairobi</option>
+                                <option value="Mombasa">Mombasa</option>
+                                <option value="Kisumu">Kisumu</option>
+                                <option value="Nakuru">Nakuru</option>
+                                <option value="Eldoret">Eldoret</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!--Gender Dropdown-->
+                    <div class="search-grid">
+                        <div class="role">
+                            <h6>Gender</h6>
+                            <span class="material-symbols-outlined">
+                                help
+                            </span>
+                        </div>
+                        <div class="search-bar">
+                            <select id="roleDropdown" onchange="updateTextBox(this.value, 'gender')">
+                                <option value="" selected>Select a Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="No Preference">No Preference</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!--Age Dropdown-->
+                    <div class="search-grid">
+                        <div class="role">
+                            <h6>Age</h6>
+                            <span class="material-symbols-outlined">
+                                help
+                            </span>
+                        </div>
+                        <div class="search-bar">
+                            <select id="roleDropdown" onchange="updateTextBox(this.value, 'age')">
+                                <option value="" selected>Select an Age Group</option>
+                                <option value="20-25">20-25</option>
+                                <option value="26-30">26-30</option>
+                                <option value="31-35">36-40</option>
+                                <option value="36-40">36-40</option>
+                                <option value="40+">40+</option>
+                                <option value="No Preference">No Preference</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="match-container">
+                    <button>Search for Match</button>
+                </div>
+            </div>
+            
+
+            <div class="preferences-container">
+                <h6>Your <span>tags:</span></h6>
+
+                <button onclick="clearAllTags()">Clear All</button>
+
+                <div id="tagsTextbox"></div>
+            </div>
+
+            
+        </div>
+    </section>
+
+
+
+    <section class="search-results-section">
+
+    </section>
+    <section class="footer">
+
+    </section>
+    
+
+    <script src="../js/script-search.js"></script>
+</body>
+</html>

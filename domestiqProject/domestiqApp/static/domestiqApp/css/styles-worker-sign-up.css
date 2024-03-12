@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&family=Ubuntu:wght@300;400;500;700&display=swap');
+
+:root {
+    --text-color: #DCDCDC;
+    --accent-color: #e3725f;
+    --black-color: #000;
+    --white-color: #fff;
+    --dark-grey-color: #333333;
+    --light-grey-color: #555555;
+    --bg-subtle-grey-color: #f4f4f4;
+    --bg-registration-form: #18181c;
+    --bg-artstation: #101014;
+    --text-artstation: #bebec2;
+    --bg-artstation-email: #101014;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    background-color: var(--bg-artstation);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+
+
+/*Log in container*/
+.main-container {
+    background-color: var(--bg-registration-form);
+    border-radius: 10px;
+    width: 700px;
+    margin: 100px 0;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.main-container .log-in-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+    width: 220px;
+    margin-left: 65%;
+    margin-top: 20px;
+}
+
+.main-container .log-in-container h6 {
+    font-weight: 300;
+    font-size: 14px;
+    color: var(--text-artstation);
+}
+
+.main-container .log-in-container a {
+    text-decoration: underline;
+    color: var(--accent-color);
+    font-size: 14px;
+}
+
+/*Logo*/
+.main-container  #logo-id {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3px;
+    width: 180px;
+    margin-top: 10px;
+    margin-left: 50px;
+}
+
+.main-container #logo-id img {
+    /*img css comes here*/
+    width: 40px;
+}
+
+.main-container #logo-id .domestiq {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-artstation);
+}
+
+/*Sign up text*/
+.main-container .sign-up {
+    font-size: 34px;
+    font-weight: 700;
+    margin-left: 50px;
+    margin-top: 40px;
+}
+
+.main-container p{
+    font-weight: 300;
+    font-size: 18px;
+    margin:0 50px;
+    margin-top: 10px;
+    color: var(--text-artstation);
+}
+
+/*toggle buttons*/
+.main-container .button-container {
+    text-align: center;
+    align-items: center;
+    margin: 40px 0 0 0;
+}
+
+.main-container .button-container #worker-btn {
+    background-color: var(--accent-color);
+    color: var(--black-color);
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.main-container .button-container #worker-btn span {
+    font-weight: 700;
+}
+
+.main-container .reg-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.main-container .reg-link span {
+    font-weight: 700;
+}
+.main-container .reg-link h1 {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.main-container .reg-link a {
+    text-decoration: underline;
+    color: var(--accent-color);
+    font-size: 14px;
+}
+
+.main-container #form-container{
+    margin: 20px 50px 50px 50px;
+    padding: 10px;
+}
+
+.main-container #form-container label{
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-artstation);
+}
+
+.main-container #form-container .client-name-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-container #form-container .client-name-container .fname-cont{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.main-container #form-container .client-name-container input{
+    font-weight: 400;
+    font-size: 14px;
+    background-color: var(--bg-artstation-email);
+    color: var(--white-color);
+    padding: 10px;
+    border: 1px solid var(--light-grey-color);
+    border-radius: 5px;
+    width: 200px;
+}
+
+.main-container #form-container .username-cont,
+.main-container #form-container .email-cont,
+.main-container #form-container .password-cont,
+.main-container #form-container .id-cont,
+.main-container #form-container .DOB-cont,
+.main-container #form-container .password2-cont {
+    margin-top: 20px;
+}
+
+.main-container #form-container .username-cont input {
+    margin-left: 60px;
+    font-weight: 400;
+    font-size: 14px;
+    background-color: var(--bg-artstation-email);
+    color: var(--white-color);
+    padding: 10px;
+    border: 1px solid var(--light-grey-color);
+    border-radius: 5px;
+    width: 400px;
+}
+
+.main-container #form-container .email-cont input {
+    margin-left: 90px;
+    font-weight: 400;
+    font-size: 14px;
+    background-color: var(--bg-artstation-email);
+    color: var(--white-color);
+    padding: 10px;
+    border: 1px solid var(--light-grey-color);
+    border-radius: 5px;
+    width: 400px;
+}
+
+.main-container #form-container .password-cont input{
+    margin-left: 64px;
+    font-weight: 400;
+    font-size: 14px;
+    background-color: var(--bg-artstation-email);
+    color: var(--white-color);
+    padding: 10px;
+    border: 1px solid var(--light-grey-color);
+    border-radius: 5px;
+    width: 400px;
+}
+
+.main-container #form-container .password2-cont input{
+    margin-left: 9px;
+    font-weight: 400;
+    font-size: 14px;
+    background-color: var(--bg-artstation-email);
+    color: var(--white-color);
+    padding: 10px;
+    border: 1px solid var(--light-grey-color);
+    border-radius: 5px;
+    width: 400px;
+}
+
+.main-container #form-container .id-cont input{
+    margin-left: 53px;
+    font-weight: 400;
+    font-size: 14px;
+    background-color: var(--bg-artstation-email);
+    color: var(--white-color);
+    padding: 10px;
+    border: 1px solid var(--light-grey-color);
+    border-radius: 5px;
+    width: 400px;
+}
+
+.main-container #form-container .DOB-cont input {
+    margin-left: 43px;
+    font-weight: 400;
+    font-size: 14px;
+    background-color: var(--bg-artstation-email);
+    color: var(--white-color);
+    padding: 10px;
+    border: 1px solid var(--light-grey-color);
+    border-radius: 5px;
+    width: 400px;
+}
+
+
+
+.main-container #form-container .radio-gender {
+    margin-top: 20px;
+    display: flex;
+    gap: 43px;
+}
+
+.main-container #form-container .radio-gender .gender-label {
+    margin-right: 37px;
+}
+
+.main-container #form-container .radio-marital {
+    margin-top: 20px;
+    display: flex;
+    gap: 36px;
+}
+
+.main-container #form-container .radio-nationality .nationality-label {
+    margin-right: 24px;
+}
+
+.main-container #form-container .radio-nationality {
+    margin-top: 20px;
+    display: flex;
+    gap: 30px;
+}
+
+input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    cursor: pointer;
+    accent-color: var(--black-color);
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    cursor: pointer;
+    accent-color: var(--black-color);
+}
+
+.main-container #form-container .role-cont #role {
+    margin-left: 100px;
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 14px;
+    background-color: var(--bg-artstation-email);
+    color: var(--white-color);
+    padding: 10px;
+    border: 1px solid var(--light-grey-color);
+    border-radius: 5px;
+    width: 400px;
+}
+
+.main-container #form-container .location-cont #location {
+    margin-left: 73px;
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 14px;
+    background-color: var(--bg-artstation-email);
+    color: var(--white-color);
+    padding: 10px;
+    border: 1px solid var(--light-grey-color);
+    border-radius: 5px;
+    width: 400px;
+}
+
+/*Accept user terms*/
+
+.main-container #form-container .checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    margin-top: 40px;
+}
+
+.main-container #form-container .checkbox-container .checkbox-label a {
+    text-decoration: underline;
+    color: var(--accent-color);
+}
+
+.main-container #form-container .submit {
+    background-color: var(--accent-color);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    margin: 20px 40%;
+}

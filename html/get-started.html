@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get-Started</title>
+    <link rel="stylesheet" href="../css/styles-get-started.css">
+</head>
+
+<body>
+
+    <!--Main container for registration page-->
+    <div class="main-container">
+        <div class="log-in-container">
+            <h6>Already have an account?</h6>
+            <a href="../html/log-in.html">Log in</a>
+        </div>
+
+        <!--Logo-->  
+        <a href="../index.html" id="logo-id">
+            <img src="../Project-Imgs/Logo-Domestiq.png" alt="#">
+           <h1 class="domestiq">Domestiq</h1>
+        </a>    
+        
+        <!--Sign up text-->
+        <h1 class="sign-up">Sign Up</h1>
+        <p>Get outstanding services from our pool of industrious workers. Get
+        outstanding services from our pool of industrious workers.
+        </p>
+        
+        <!--Registration Forms and buttons-->
+        <div class="button-container">
+            <button id="client-btn" class="active" onclick="toggleForm('client-form', 'worker-form')">Register as a <span>Client</span></button>
+            <button id="worker-btn" onclick="toggleForm('worker-form', 'client-form')">Register as a <span>Worker</span></button>
+        </div>
+        
+        <!--Placeholder for worker and client forms-->
+        <div id="form-container">
+            <form id="client-form" class="registration-form">
+                <div class="client-name-container">
+                    <div class="fname-cont">
+                        <label for="client-fname">First Name:</label>
+                        <input type="text" placeholder= "E.g. John" id="client-fname" name="client-fname" required>
+                    </div>
+
+                    <div class="fname-cont">
+                        <label for="client-lname">Last Name:</label>
+                        <input type="text" placeholder= "E.g. Kamau" id="client-lname" name="client-lname" required>
+                    </div>
+                </div>
+                
+                <div class="email-cont">
+                    <label for="client-email">Email:</label>
+                    <input type="email" placeholder="E.g. johnkamau@example.com" id="client-email" name="client-email" required>
+                </div>
+
+                <div class="password-cont">
+                    <label for="client-password">Password:</label>
+                    <input type="password" placeholder="8-16 characters" id="client-password" name="client-password" required>
+                </div>
+
+                <!--DOB-->
+                <div class="DOB-cont">
+                    <div>
+                        <label for="DOB">Date of Birth:</label>
+                        <select id="month-c" name="month" onchange="updateDays()">
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="day">Day:</label>
+                        <select id="day-c" name="day"></select>
+                    </div>
+                    <div>
+                        <label for="year">Year:</label>
+                        <select id="year-c" name="year"></select>
+                    </div>
+                </div>
+
+                <!--Gender radio button-->
+                <div class="radio-gender">
+                    <label class= 'gender-label' for="gender">Gender:</label>
+                    <label>
+                        <input type="radio" name="gender" value="male"> Male
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="female"> Female
+                    </label>
+                </div>
+
+                <div class="radio-marital">
+                    <label for="marital-status">Marital Status:</label>
+                    <label>
+                        <input type="radio" name="maritalStatus" value="single"> Single
+                    </label>
+                    <label>
+                        <input type="radio" name="maritalStatus" value="married"> Married
+                    </label>
+                </div>
+                
+                <div class="radio-nationality">
+                    <label class="nationality-label" for="nationality-label">Nationality:</label>
+                    <label>
+                        <input type="radio" name="nationality" value="kenyan"> Kenyan
+                    </label>
+                    <label>
+                        <input type="radio" name="nationality" value="foreigner"> Foreigner
+                    </label>
+                </div>
+
+                <!--Accept terms of service-->
+                <div class="checkbox-container">
+                    <input type="checkbox" id="acceptTerms">
+                        <div class="checkmark"></div>
+                    <label class="checkbox-label" for="acceptTerms">By creating an account, you agree to our <a href="#" target="_blank">Terms of Service</a> and <a href="#" target="_blank">Privacy Policy</a>.</label>
+                </div>
+        
+                
+        
+                <button class="submit" type="submit">Create user account</button>
+            </form>
+        
+            <form id="worker-form" class="registration-form" style="display: none;">
+                <div class="client-name-container">
+                    <div class="fname-cont">
+                        <label for="client-fname">First Name:</label>
+                        <input type="text" placeholder= "E.g. John" id="client-fname" name="client-fname" required>
+                    </div>
+
+                    <div class="fname-cont">
+                        <label for="client-lname">Last Name:</label>
+                        <input type="text" placeholder= "E.g. Kamau" id="client-lname" name="client-lname" required>
+                    </div>
+                </div>
+                
+                <div class="email-cont">
+                    <label for="client-email">Email:</label>
+                    <input type="email" placeholder="E.g. johnkamau@example.com" id="client-email" name="client-email" required>
+                </div>
+
+                <div class="password-cont">
+                    <label for="client-password">Password:</label>
+                    <input type="password" placeholder="8-16 characters" id="client-password" name="client-password" required>
+                </div>
+
+                <!--DOB-->
+                <div class="DOB-cont">
+                    <div>
+                        <label for="DOB">Date of Birth:</label>
+                        <select id="month-w" name="month" onchange="updateDays()">
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="day">Day:</label>
+                        <select id="day-w" name="day"></select>
+                    </div>
+                    <div>
+                        <label for="year">Year:</label>
+                        <select id="year-w" name="year"></select>
+                    </div>
+                </div>
+
+                <!--Gender radio button-->
+                <div class="radio-gender">
+                    <label class= 'gender-label' for="gender">Gender:</label>
+                    <label>
+                        <input type="radio" name="gender" value="male"> Male
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="female"> Female
+                    </label>
+                </div>
+
+                <div class="radio-marital">
+                    <label for="marital-status">Marital Status:</label>
+                    <label>
+                        <input type="radio" name="maritalStatus" value="single"> Single
+                    </label>
+                    <label>
+                        <input type="radio" name="maritalStatus" value="married"> Married
+                    </label>
+                </div>
+                
+                <div class="radio-nationality">
+                    <label class="nationality-label" for="nationality-label">Nationality:</label>
+                    <label>
+                        <input type="radio" name="nationality" value="kenyan"> Kenyan
+                    </label>
+                    <label>
+                        <input type="radio" name="nationality" value="foreigner"> Foreigner
+                    </label>
+                </div>
+
+                <!--role of worker-->
+                <div class="role-cont">
+                    <label for="role">Role:</label>
+                    <select id="role" name="role">
+                        <option value="House Help">House Help</option>
+                        <option value="Nanny">Nanny</option>
+                        <option value="Gardener">Gardener</option>
+                        <option value="Gatekeeper">Gatekeeper</option>
+                        <option value="Chef">Chef</option>  
+                    </select>
+                </div>
+
+                <div class="location-cont">
+                    <label for="location">Location:</label>
+                    <select id="location" name="location">
+                        <option value="Nairobi">Nairobi</option>
+                        <option value="Mombasa">Mombasa</option>
+                        <option value="Kisumu">Kisumu</option>
+                        <option value="Nakuru">Nakuru</option>
+                        <option value="Eldoret">Eldoret</option>  
+                    </select>
+                </div>
+
+                <!--Accept terms of service-->
+                <div class="checkbox-container">
+                    <input type="checkbox" id="acceptTerms">
+                        <div class="checkmark"></div>
+                    <label class="checkbox-label" for="acceptTerms">By creating an account, you agree to our <a href="#" target="_blank">Terms of Service</a> and <a href="#" target="_blank">Privacy Policy</a>.</label>
+                </div>
+        
+                
+        
+                <button class="submit" type="submit">Create worker account</button>
+
+            </form>
+            
+            <a href="../html/success.html">success page for registration</a>
+
+        </div>
+    </div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <script src="../js/script-started.js" defer></script>
+</body>
+</html>

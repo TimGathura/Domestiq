@@ -1,0 +1,144 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get-Started</title>
+    <link rel="stylesheet" href="{% static 'domestiqApp/css/styles-client-sign-up.css' %}">
+</head>
+
+<body>
+
+    <!--Main container for registration page-->
+    <div class="main-container">
+        <div class="log-in-container">
+            <h6>Already have an account?</h6>
+            <a href="{% url 'login' %}">Log in</a>
+        </div>
+
+        <!--Logo-->  
+        <a href="{% url 'index' %}" id="logo-id">
+            <img src="{% static 'domestiqApp/images/Logo-Domestiq.png' %}" alt="#">
+           <h1 class="domestiq">Domestiq</h1>
+        </a>    
+        
+        <!--Sign up text-->
+        <h1 class="sign-up">Sign Up</h1>
+        <p>Get outstanding services from our pool of industrious workers. Get
+        outstanding services from our pool of industrious workers.
+        </p>
+        
+        <!--Registration Forms and buttons-->
+        <div class="button-container">
+            <button id="client-btn" class="active" onclick="toggleForm('client-form', 'worker-form')"><span>Client</span> registration form</button>
+        </div>
+
+        <div class="reg-link">
+            <h1>Want a <span>job</span> with us instead? <a href="{% url 'worker_signup' %}">Register here</a></h1>
+        </div>
+        
+        <!--Placeholder for worker and client forms-->
+        <div id="form-container">
+            <form id="client-form" class="registration-form" method="post" action="{% url 'client_signup'%}">
+                {% csrf_token %}
+
+                <div class="client-name-container">
+                    <div class="fname-cont">
+                        <label for="client-fname">First Name:</label>
+                        <input type="text" placeholder= "E.g. John" id="client-fname" name="client_fname" required>
+                    </div>
+
+                    <div class="fname-cont">
+                        <label for="client-lname">Last Name:</label>
+                        <input type="text" placeholder= "E.g. Kamau" id="client-lname" name="client_lname" required>
+                    </div>
+                </div>
+
+                <div class="username-cont">
+                    <label for="client-username">Username:</label>
+                    <input type="text" placeholder="E.g. JohnKamau" id="client-username" name="client_username" required>
+                </div>
+                
+                <div class="email-cont">
+                    <label for="client-email">Email:</label>
+                    <input type="email" placeholder="E.g. johnkamau@example.com" id="client-email" name="client_email" required>
+                </div>
+
+                <!--Password-->
+                <div class="password-cont">
+                    <label for="client-password">Password:</label>
+                    <input type="password" placeholder="8-16 characters" id="client-password" name="client_password" required>
+                </div>
+
+                <!--Confirm password-->
+                <div class="password2-cont">
+                    <label for="client-password">Confirm password:</label>
+                    <input type="password" placeholder="8-16 characters" id="client-password2" name="client_confirmPassword" required>
+                </div>
+
+                <!--DOB-->
+                <div class="DOB-cont">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="client_dob" required>
+                </div>
+
+                <!--Gender radio button-->
+                <div class="radio-gender">
+                    <label class= 'gender-label' for="client_gender">Gender:</label>
+                    <label>
+                        <input type="radio" name="client_gender" value="male" required> Male
+                    </label>
+                    <label>
+                        <input type="radio" name="client_gender" value="female" required> Female
+                    </label>
+                </div>
+
+                <div class="radio-marital">
+                    <label for="marital-status">Marital Status:</label>
+                    <label>
+                        <input type="radio" name="client_maritalStatus" value="single" required> Single
+                    </label>
+                    <label>
+                        <input type="radio" name="client_maritalStatus" value="married" required> Married
+                    </label>
+                </div>
+                
+                <div class="radio-nationality">
+                    <label class="nationality-label" for="nationality-label">Nationality:</label>
+                    <label>
+                        <input type="radio" name="client_nationality" value="kenyan" required> Kenyan
+                    </label>
+                    <label>
+                        <input type="radio" name="client_nationality" value="foreigner" required> Foreigner
+                    </label>
+                </div>
+
+                <!--Accept terms of service-->
+                <div class="checkbox-container">
+                    <input type="checkbox" id="acceptTerms" name="client_acceptTerms"required>
+                        <div class="checkmark"></div>
+                    <label class="checkbox-label" for="acceptTerms">By creating an account, you agree to our <a href="#" target="_blank">Terms of Service</a> and <a href="#" target="_blank">Privacy Policy</a>.</label>
+                </div>
+        
+                
+        
+                <button class="submit" type="submit">Create user account</button>
+            </form>
+
+            
+            <a href="{% url 'success' %}">success page for registration</a>
+
+        </div>
+    </div>
+
+
+    
+
+
+
+
+    <script src="{% static 'domestiqApp/css/script-client-sign-up.js' %}" defer></script>
+</body>
+</html>

@@ -1,0 +1,670 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <link rel="stylesheet" href="{% static 'domestiqApp/css/styles-search.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+
+<body>
+    <!--Navbar for search.html-->
+    <div class="nav-container">
+        <nav>
+            <a href="{% url 'index' %}" id="logo-id">
+                 <img src="{% static 'domestiqApp/images/Logo-Domestiq.png' %}" alt="#">
+                <h1>Domestiq</h1>
+            </a>
+        
+            <div class="links">
+                <a href="{% url 'index' %}">HOME</a>
+                <a href="{% url 'about' %}">ABOUT</a>
+                <a href="{% url 'services' %}">SERVICES</a>
+                <a href="{% url 'search' %}">SEARCH</a>
+                <a href="{% url 'contact' %}">CONTACT US</a>
+        
+                </div>
+        
+            <div class="log-in">
+                <a href="{% url 'client_signup' %}">
+                    <button class="get-started-btn">Get Started</button>
+                </a>
+                <a href="{% url 'login' %}">
+                    <button class="log-in-btn">Log In</button>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <section class="hero-search">
+        <div class="hero-search-content">
+            <h1>Search for your <span>Perfect Match</span></h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem voluptatibus
+             nulla qui exercitationem facilis consequatur necessitatibus nobis ex accusamus repudiandae,
+             animi harum alias ipsam aspernatur, veniam atque eos earum similique.</p>
+             <div class="hero-buttons">
+                <a href="{% url 'client_signup' %}">
+                    <button class="get-started-btn">Sign Up</button>
+                </a>
+                <a href="{% url 'login' %}">
+                    <button class="log-in-btn">Log In</button>
+                </a>
+             </div>
+            <p class="pp">If you have already logged in, proceed to search for your perfect match!</p>
+        </div>
+    </section>
+
+    <section class="search-bars-section">
+        <div class="main-card-container">
+            <div class="flex-container">
+                <div class="search-grid">
+                    <!--Role Dropdown-->
+                    <div class="search-bar">
+                        <span class="material-symbols-rounded">
+                            person
+                        </span>
+                        <select id="roleDropdown" onchange="updateTextBox(this.value, 'roles')">
+                            <option value="" selected>Select a Role</option>
+                            <option value="House Help">House Help</option>
+                            <option value="Nanny">Nanny</option>
+                            <option value="Gardener">Gardener</option>
+                            <option value="Gate Keeper">Gate Keeper</option>
+                            <option value="Chef">Chef</option>
+                        </select>
+                    </div>
+                    <div class="vr">
+                    </div>
+                    <!--Location Dropdown-->
+                    <div class="search-bar">
+                        <span class="material-symbols-rounded">
+                            location_on
+                        </span>
+                        <select id="locationDropdown" onchange="updateTextBox(this.value, 'location')">
+                            <option value="" selected>Select a Location</option>
+                            <option value="Nairobi">Nairobi</option>
+                            <option value="Mombasa">Mombasa</option>
+                            <option value="Kisumu">Kisumu</option>
+                            <option value="Nakuru">Nakuru</option>
+                            <option value="Eldoret">Eldoret</option>
+                        </select>
+                    </div>
+                    <div class="vr">
+                    </div>
+                    <!--Gender Dropdown-->
+                    <div class="search-bar">
+                        <span class="material-symbols-rounded">
+                            male
+                        </span>
+                        <select id="roleDropdown" onchange="updateTextBox(this.value, 'gender')">
+                            <option value="" selected>Select a Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="No Preference">No Preference</option>
+                        </select>
+                    </div>
+                    <div class="vr">
+                    </div>
+                    <!--Age Dropdown-->
+                    <div class="search-bar">
+                        <span class="material-symbols-rounded">
+                            group
+                        </span>
+                        <select id="roleDropdown" onchange="updateTextBox(this.value, 'age')">
+                            <option value="" selected>Select an Age Group</option>
+                            <option value="20-25">20-25</option>
+                            <option value="26-30">26-30</option>
+                            <option value="31-35">36-40</option>
+                            <option value="36-40">36-40</option>
+                            <option value="40+">40+</option>
+                            <option value="No Preference">No Preference</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="match-container">
+                    <button>Search for Worker</button>
+                </div>
+            </div>
+            
+
+            <div class="preferences-container">
+                <h6>Your <span>tags:</span></h6>
+
+                <div id="tagsTextbox"></div>
+            </div>
+
+            
+        </div>
+    </section>
+
+    <div class="hr">
+    </div>
+
+    <section class="search-results-section">
+        <div class="cont"> 
+            <h1>Recommended Workers</h1>
+            <hr>
+            <div class="search-grid">
+                <!--First of 9 cards!!-->
+                <div class="search-card"> 
+                    <div class="top">
+                        <img src="{% static 'domestiqApp/images/male-portrait1.png' %}" alt="#">
+                        <div class="name">
+                            <p class="p1">Mr. <span class="span1">Gathura</span></p> 
+                            <p class="p2">House Help, <span class="span2">Nairobi</span></p> 
+                        </div>
+                        
+                    </div> 
+
+                    <div class="hr">
+                    </div>
+
+                    <div class="text">
+                        <p class="p3">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
+                        ad minim veniam.
+                        </p>
+                    </div>
+
+                    <div class="details-cont">
+                        <div class="details">
+                            <p class="p3"> Role: </p>
+                            <p class="p-role">House Help</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Location: </p>
+                            <p class="p-location">Nairobi</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Gender: </p>
+                            <p class="p-gender">Male</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Age: </p>
+                            <p class="p-age">37</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Nationality: </p>
+                            <p class="p-nationality">Kenyan</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                    </div>
+
+                    <!--For handling the border radius issue-->
+                    <div class="more-details-cont-dummy">
+                    </div>
+
+                    <div class="more-details-cont">
+                        <a href="#" class="details-link">More Details</a>
+                    </div>
+                </div>
+
+                <div class="search-card"> 
+                    <div class="top">
+                        <img src="{% static 'domestiqApp/images/male-portrait1.png' %}" alt="#">
+                        <div class="name">
+                            <p class="p1">Mr. <span class="span1">Gathura</span></p> 
+                            <p class="p2">House Help, <span class="span2">Nairobi</span></p> 
+                        </div>
+                        
+                    </div> 
+
+                    <div class="hr">
+                    </div>
+
+                    <div class="text">
+                        <p class="p3">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
+                        ad minim veniam.
+                        </p>
+                    </div>
+
+                    <div class="details-cont">
+                        <div class="details">
+                            <p class="p3"> Role: </p>
+                            <p class="p-role">House Help</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Location: </p>
+                            <p class="p-location">Nairobi</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Gender: </p>
+                            <p class="p-gender">Male</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Age: </p>
+                            <p class="p-age">37</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Nationality: </p>
+                            <p class="p-nationality">Kenyan</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                    </div>
+
+                    <!--For handling the border radius issue-->
+                    <div class="more-details-cont-dummy">
+                    </div>
+
+                    <div class="more-details-cont">
+                        <a href="#" class="details-link">More Details</a>
+                    </div>
+                </div>
+
+                <div class="search-card"> 
+                    <div class="top">
+                        <img src="{% static 'domestiqApp/images/male-portrait1.png' %}" alt="#">
+                        <div class="name">
+                            <p class="p1">Mr. <span class="span1">Gathura</span></p> 
+                            <p class="p2">House Help, <span class="span2">Nairobi</span></p> 
+                        </div>
+                        
+                    </div> 
+
+                    <div class="hr">
+                    </div>
+
+                    <div class="text">
+                        <p class="p3">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
+                        ad minim veniam.
+                        </p>
+                    </div>
+
+                    <div class="details-cont">
+                        <div class="details">
+                            <p class="p3"> Role: </p>
+                            <p class="p-role">House Help</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Location: </p>
+                            <p class="p-location">Nairobi</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Gender: </p>
+                            <p class="p-gender">Male</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Age: </p>
+                            <p class="p-age">37</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Nationality: </p>
+                            <p class="p-nationality">Kenyan</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                    </div>
+
+                    <!--For handling the border radius issue-->
+                    <div class="more-details-cont-dummy">
+                    </div>
+
+                    <div class="more-details-cont">
+                        <a href="#" class="details-link">More Details</a>
+                    </div>
+                </div>
+
+                <div class="search-card"> 
+                    <div class="top">
+                        <img src="{% static 'domestiqApp/images/male-portrait1.png' %}" alt="#">
+                        <div class="name">
+                            <p class="p1">Mr. <span class="span1">Gathura</span></p> 
+                            <p class="p2">House Help, <span class="span2">Nairobi</span></p> 
+                        </div>
+                        
+                    </div> 
+
+                    <div class="hr">
+                    </div>
+
+                    <div class="text">
+                        <p class="p3">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
+                        ad minim veniam.
+                        </p>
+                    </div>
+
+                    <div class="details-cont">
+                        <div class="details">
+                            <p class="p3"> Role: </p>
+                            <p class="p-role">House Help</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Location: </p>
+                            <p class="p-location">Nairobi</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Gender: </p>
+                            <p class="p-gender">Male</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Age: </p>
+                            <p class="p-age">37</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Nationality: </p>
+                            <p class="p-nationality">Kenyan</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                    </div>
+
+                    <!--For handling the border radius issue-->
+                    <div class="more-details-cont-dummy">
+                    </div>
+
+                    <div class="more-details-cont">
+                        <a href="#" class="details-link">More Details</a>
+                    </div>
+                </div>
+
+                <div class="search-card"> 
+                    <div class="top">
+                        <img src="{% static 'domestiqApp/images/male-portrait1.png' %}" alt="#">
+                        <div class="name">
+                            <p class="p1">Mr. <span class="span1">Gathura</span></p> 
+                            <p class="p2">House Help, <span class="span2">Nairobi</span></p> 
+                        </div>
+                        
+                    </div> 
+
+                    <div class="hr">
+                    </div>
+
+                    <div class="text">
+                        <p class="p3">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
+                        ad minim veniam.
+                        </p>
+                    </div>
+
+                    <div class="details-cont">
+                        <div class="details">
+                            <p class="p3"> Role: </p>
+                            <p class="p-role">House Help</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Location: </p>
+                            <p class="p-location">Nairobi</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Gender: </p>
+                            <p class="p-gender">Male</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Age: </p>
+                            <p class="p-age">37</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Nationality: </p>
+                            <p class="p-nationality">Kenyan</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                    </div>
+
+                    <!--For handling the border radius issue-->
+                    <div class="more-details-cont-dummy">
+                    </div>
+
+                    <div class="more-details-cont">
+                        <a href="#" class="details-link">More Details</a>
+                    </div>
+                </div>
+
+                <div class="search-card"> 
+                    <div class="top">
+                        <img src="{% static 'domestiqApp/images/male-portrait1.png' %}" alt="#">
+                        <div class="name">
+                            <p class="p1">Mr. <span class="span1">Gathura</span></p> 
+                            <p class="p2">House Help, <span class="span2">Nairobi</span></p> 
+                        </div>
+                        
+                    </div> 
+
+                    <div class="hr">
+                    </div>
+
+                    <div class="text">
+                        <p class="p3">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
+                        ad minim veniam.
+                        </p>
+                    </div>
+
+                    <div class="details-cont">
+                        <div class="details">
+                            <p class="p3"> Role: </p>
+                            <p class="p-role">House Help</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Location: </p>
+                            <p class="p-location">Nairobi</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Gender: </p>
+                            <p class="p-gender">Male</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Age: </p>
+                            <p class="p-age">37</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Nationality: </p>
+                            <p class="p-nationality">Kenyan</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                    </div>
+
+                    <!--For handling the border radius issue-->
+                    <div class="more-details-cont-dummy">
+                    </div>
+
+                    <div class="more-details-cont">
+                        <a href="#" class="details-link">More Details</a>
+                    </div>
+                </div>
+
+                <div class="search-card"> 
+                    <div class="top">
+                        <img src="{% static 'domestiqApp/images/male-portrait1.png' %}" alt="#">
+                        <div class="name">
+                            <p class="p1">Mr. <span class="span1">Gathura</span></p> 
+                            <p class="p2">House Help, <span class="span2">Nairobi</span></p> 
+                        </div>
+                        
+                    </div> 
+
+                    <div class="hr">
+                    </div>
+
+                    <div class="text">
+                        <p class="p3">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
+                        ad minim veniam.
+                        </p>
+                    </div>
+
+                    <div class="details-cont">
+                        <div class="details">
+                            <p class="p3"> Role: </p>
+                            <p class="p-role">House Help</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Location: </p>
+                            <p class="p-location">Nairobi</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Gender: </p>
+                            <p class="p-gender">Male</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Age: </p>
+                            <p class="p-age">37</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Nationality: </p>
+                            <p class="p-nationality">Kenyan</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                    </div>
+
+                    <!--For handling the border radius issue-->
+                    <div class="more-details-cont-dummy">
+                    </div>
+
+                    <div class="more-details-cont">
+                        <a href="#" class="details-link">More Details</a>
+                    </div>
+                </div>
+
+                <div class="search-card"> 
+                    <div class="top">
+                        <img src="{% static 'domestiqApp/images/male-portrait1.png' %}" alt="#">
+                        <div class="name">
+                            <p class="p1">Mr. <span class="span1">Gathura</span></p> 
+                            <p class="p2">House Help, <span class="span2">Nairobi</span></p> 
+                        </div>
+                        
+                    </div> 
+
+                    <div class="hr">
+                    </div>
+
+                    <div class="text">
+                        <p class="p3">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
+                        ad minim veniam.
+                        </p>
+                    </div>
+
+                    <div class="details-cont">
+                        <div class="details">
+                            <p class="p3"> Role: </p>
+                            <p class="p-role">House Help</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Location: </p>
+                            <p class="p-location">Nairobi</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Gender: </p>
+                            <p class="p-gender">Male</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Age: </p>
+                            <p class="p-age">37</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Nationality: </p>
+                            <p class="p-nationality">Kenyan</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                    </div>
+
+                    <!--For handling the border radius issue-->
+                    <div class="more-details-cont-dummy">
+                    </div>
+
+                    <div class="more-details-cont">
+                        <a href="#" class="details-link">More Details</a>
+                    </div>
+                </div>
+
+                <div class="search-card"> 
+                    <div class="top">
+                        <img src="{% static 'domestiqApp/images/male-portrait1.png' %}" alt="#">
+                        <div class="name">
+                            <p class="p1">Mr. <span class="span1">Gathura</span></p> 
+                            <p class="p2">House Help, <span class="span2">Nairobi</span></p> 
+                        </div>
+                        
+                    </div> 
+
+                    <div class="hr">
+                    </div>
+
+                    <div class="text">
+                        <p class="p3">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
+                        ad minim veniam.
+                        </p>
+                    </div>
+
+                    <div class="details-cont">
+                        <div class="details">
+                            <p class="p3"> Role: </p>
+                            <p class="p-role">House Help</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Location: </p>
+                            <p class="p-location">Nairobi</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Gender: </p>
+                            <p class="p-gender">Male</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Age: </p>
+                            <p class="p-age">37</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                        <div class="details">
+                            <p class="p3"> Nationality: </p>
+                            <p class="p-nationality">Kenyan</p> <!--DB stuff starts here(except name above)-->
+                        </div>
+                    </div>
+
+                    <!--For handling the border radius issue-->
+                    <div class="more-details-cont-dummy">
+                    </div>
+
+                    <div class="more-details-cont">
+                        <a href="#" class="details-link">More Details</a>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="search-card"> 
+                    lorem2
+                </div>
+
+                <div class="search-card"> 
+                    lorem3
+                </div>
+
+                <div class="search-card"> 
+                    lorem4
+                </div>
+
+                <div class="search-card"> 
+                    lorem5
+                </div>
+
+                <div class="search-card"> 
+                    lorem6
+                </div>
+
+                <div class="search-card"> 
+                    lorem7
+                </div>
+
+                <div class="search-card"> 
+                    lorem8
+                </div>
+
+                <div class="search-card"> 
+                    lorem9
+                </div>
+                
+
+            </div>
+        </div>
+        
+    </section>
+    <section class="footer">
+
+    </section>
+    
+
+    <script src="{% static 'domestiqApp/js/script-search.js' %}"></script>
+</body>
+</html>

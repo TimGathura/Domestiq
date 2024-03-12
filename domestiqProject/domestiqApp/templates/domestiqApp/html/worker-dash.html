@@ -1,0 +1,155 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Dashboard</title>
+    <link rel="stylesheet" href="{% static 'domestiqApp/css/styles-worker-dash.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="logo-cont">
+            <a href="{% url 'index' %}" id="logo-id">
+                <img src="{% static 'domestiqApp/images/Logo-Domestiq.png' %}" alt="#">
+                <h1>Domestiq</h1>
+            </a>
+        </div>
+
+        <div class="prof-pic-cont">
+            <img src="{% static 'domestiqApp/images/female-portrait1.png' %}" alt="profile pic">   
+            <!--<span class="material-symbols-outlined">
+                edit
+            </span>-->
+            <h1>hello, <span>Lucy</span></h1>
+        </div>
+
+        <div id="tabs">
+            <a href="#dashboardContent" onclick="showContent('dashboardContent')">
+                <span class="material-symbols-rounded">
+                    dashboard
+                </span>
+                Dashboard
+            </a>
+            <a href="#myRequestsContent" onclick="showContent('myRequestsContent')">
+                <span class="material-symbols-rounded">
+                    person_add
+                </span>
+                Requests
+            </a>
+            <a href="#appointmentsContent" onclick="showContent('appointmentsContent')">
+                <span class="material-symbols-rounded">
+                    event
+                </span>
+                Appointments
+            </a>
+            <a href="#settingsContent" onclick="showContent('settingsContent')">
+                <span class="material-symbols-rounded">
+                    settings
+                </span>
+                Settings
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Main Content -->
+    <div id="content">
+        <div class="nav">
+            <div class="links">
+                <a href="{% url 'index' %}">Home</a>
+                <a href="{% url 'about' %}">About</a>
+                <a href="{% url 'services' %}">Services</a>
+                <a href="{% url 'search' %}">Search</a>
+                <a href="{% url 'contact' %}">Contact Us</a>
+            </div>
+
+            <div class="log-out">
+                <button id="notifications-btn" class="log-btn">
+                    <span class="material-symbols-rounded">
+                        notifications
+                    </span>
+                </button>
+
+    <!-- Log out button -->
+                <button id="log-out-btn" class="log-btn" type="submit">
+                    <span class="material-symbols-rounded">
+                        logout
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <div id="dashboardContent" class= "content-section">
+            <h1>Welcome, <span>Worker</span></h1>
+            <div class="card-cont">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Aliquam, nostrum natus obcaecati, magni quaerat odit aperiam 
+                iure ut ipsa fugiat maxime sequi quibusdam laboriosam recusandae, 
+                architecto distinctio voluptatum placeat numquam!</p>
+            </div>
+            <h1>More information</h1>
+            <div class="card-cont">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Aliquam, nostrum natus obcaecati, magni quaerat odit aperiam 
+                iure ut ipsa fugiat maxime sequi quibusdam laboriosam recusandae, 
+                architecto distinctio voluptatum placeat numquam!</p>
+            </div>
+        </div>
+
+        <div id="myRequestsContent" class="content-section" style="display: none;">
+            <h1>My Requests</h1>
+            <hr>
+            <h2>Approved Requests</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Aliquam, nostrum natus obcaecati, magni quaerat odit aperiam 
+                iure ut ipsa fugiat maxime sequi quibusdam laboriosam recusandae, 
+                architecto distinctio voluptatum placeat numquam!</p>
+            <div class="card-cont">
+                <p>Requests approved by the admin will be shown here. You can view the associated
+                appointment on the appointment page.</p>
+                <img src="{% static 'domestiqApp/images/requests-done.png' %}" alt="requests-img">
+            </div>
+
+            <h2>Pending Requests</h2>
+            <p> You can manage your worker requests here. Your requests refer to the orders for
+            workers you have placed. You can revoke a request by clicking on the delete button adjacent
+            to a request.</p>
+            <p>Note that you can only have one active request at a time. Delete the current request if 
+            you wish to order for another worker from the search page.</p>
+            <div class="card-cont">
+                <p>Your pending requests will be shown here.</p>
+                <img src="{% static 'domestiqApp/images/requests-done.png' %}" alt="requests-img">
+            </div>
+        </div>
+
+        <div id="appointmentsContent" class="content-section" style="display: none;">
+            <h1>My Appointments</h1>
+            <hr>
+            <h2>Upcoming appointments</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Aliquam, nostrum natus obcaecati, magni quaerat odit aperiam 
+                iure ut ipsa fugiat maxime sequi quibusdam laboriosam recusandae, 
+                architecto distinctio voluptatum placeat numquam!</p>
+            <div class="card-cont">
+                <p>Your pending appointments will be shown here. Be sure to 
+                honour them.</p>
+                <img src="{% static 'domestiqApp/images/appointment-done.png' %}" alt="appointment-img">
+            </div>
+        </div>
+
+        <div id="settingsContent" class="content-section" style="display: none;">
+            <h1>This is the settings page.</h1>
+        </div>
+    </div>
+    
+
+    <script src="{% static 'domestiqApp/js/script-worker-dash.js' %}" defer></script>
+</body>
+</html>

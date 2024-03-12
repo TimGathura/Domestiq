@@ -1,0 +1,181 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get-Started</title>
+    <link rel="stylesheet" href="{% static 'domestiqApp/css/styles-worker-sign-up.css' %}">
+</head>
+
+<body>
+
+    <!--Main container for registration page-->
+    <div class="main-container">
+        <div class="log-in-container">
+            <h6>Already have an account?</h6>
+            <a href="{% url 'login' %}">Log in</a>
+        </div>
+
+        <!--Logo-->  
+        <a href="{% url 'index' %}" id="logo-id">
+            <img src="{% static 'domestiqApp/images/Logo-Domestiq.png' %}" alt="#">
+           <h1 class="domestiq">Domestiq</h1>
+        </a>    
+        
+        <!--Sign up text-->
+        <h1 class="sign-up">Sign Up</h1>
+        <p>Join our pool of talented workers and get the most out of the work you do. Amazing
+        salaries are guaranteed under our corporate umbrella
+        </p>
+        
+        <!--Registration Forms and buttons-->
+        <div class="button-container">
+            <button id="worker-btn" onclick="toggleForm('worker-form', 'client-form')"><span>Worker</span> registration form</button>
+        </div>
+
+        <div class="reg-link">
+            <h1>Want a <span>domestiq worker</span> instead? <a href="{% url 'client_signup' %}">Register here</a></h1>
+        </div>
+        
+        <!--Placeholder for worker and client forms-->
+        <div id="form-container">
+            <form id="worker-form" class="registration-form" method="post" action="{% url 'worker_signup' %}">
+                {% csrf_token %}
+                <!--{{ form.as_p }}-->
+                
+                <div class="client-name-container">
+                    <div class="fname-cont">
+                        <label for="client-fname">First Name:</label>
+                        <input type="text" placeholder= "E.g. John" id="client-fname" name="worker_fname" required>
+                    </div>
+
+                    <div class="fname-cont">
+                        <label for="client-lname">Last Name:</label>
+                        <input type="text" placeholder= "E.g. Kamau" id="client-lname" name="worker_lname" required>
+                    </div>
+                </div>
+
+                <div class="username-cont">
+                    <label for="client-username">Username:</label>
+                    <input type="text" placeholder="E.g. JohnKamau" id="worker-username" name="worker_username" required>
+                </div>
+                
+                <div class="email-cont">
+                    <label for="client-email">Email:</label>
+                    <input type="email" placeholder="E.g. johnkamau@example.com" id="client-email" name="worker_email" required>
+                </div>
+
+                <!--Password-->
+                <div class="password-cont">
+                    <label for="worker-password">Password:</label>
+                    <input type="password" placeholder="8-16 characters" id="worker-password" name="worker_password" required>
+                </div>
+                <!--Confirm password-->
+                <div class="password2-cont">
+                    <label for="worker-password">Confirm password:</label>
+                    <input type="password" placeholder="8-16 characters" id="worker-password2" name="worker_confirmPassword" required>
+                </div>
+
+                <div class="id-cont">
+                    <label for="worker-id">National ID:</label>
+                    <input type="number" placeholder="E.g. 12345678" id="worker-id" name="worker_id" required>
+                </div>    
+
+                <!--DOB-->
+                <div class="DOB-cont">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="worker_dob" required>
+                </div>
+
+                <!--Gender radio button-->
+                <div class="radio-gender">
+                    <label class= 'gender-label' for="worker_gender">Gender:</label>
+                    <label>
+                        <input type="radio" name="worker_gender" value="male" required> Male
+                    </label>
+                    <label>
+                        <input type="radio" name="worker_gender" value="female" required> Female
+                    </label>
+                </div>
+
+                <div class="radio-marital">
+                    <label for="marital-status">Marital Status:</label>
+                    <label>
+                        <input type="radio" name="worker_maritalStatus" value="single" required> Single
+                    </label>
+                    <label>
+                        <input type="radio" name="worker_maritalStatus" value="married" required> Married
+                    </label>
+                </div>
+                
+                <div class="radio-nationality">
+                    <label class="nationality-label" for="nationality-label">Nationality:</label>
+                    <label>
+                        <input type="radio" name="worker_nationality" value="kenyan" required> Kenyan
+                    </label>
+                    <label>
+                        <input type="radio" name="worker_nationality" value="foreigner" required> Foreigner
+                    </label>
+                </div>
+
+                <!--role of worker-->
+                <div class="role-cont">
+                    <label for="role">Role:</label>
+                    <select id="role" name="worker_role" required>
+                        <option value="" disabled selected>Select a Worker Role</option>
+                        <option value="house help">House Help</option>
+                        <option value="nanny">Nanny</option>
+                        <option value="gardener">Gardener</option>
+                        <option value="gatekeeper">Gatekeeper</option>
+                        <option value="chef">Chef</option>  
+                    </select>
+                </div>
+
+                <div class="location-cont">
+                    <label for="location">Location:</label>
+                    <select id="location" name="worker_location" required>
+                        <option value="" disabled selected>Select a Location</option>
+                        <option value="nairobi">Nairobi</option>
+                        <option value="mombasa">Mombasa</option>
+                        <option value="kisumu">Kisumu</option>
+                        <option value="nakuru">Nakuru</option>
+                        <option value="eldoret">Eldoret</option>  
+                    </select>
+                </div>
+
+                <!--Accept terms of service-->
+                <div class="checkbox-container">
+                    <input type="checkbox" id="acceptTerms" name="worker_acceptTerms" required>
+                        <div class="checkmark"></div>
+                    <label class="checkbox-label" for="acceptTerms">By creating an account, you agree to our <a href="#" target="_blank">Terms of Service</a> and <a href="#" target="_blank">Privacy Policy</a>.</label>
+                </div>
+        
+                
+        
+                <button class="submit" type="submit">Create worker account</button>
+
+            </form>
+            
+            <a href="{% url 'success' %}">success page for registration</a>
+
+        </div>
+    </div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <script src="{% static 'domestiqApp/css/script-worker-sign-up.js' %}" defer></script>
+</body>
+</html>
